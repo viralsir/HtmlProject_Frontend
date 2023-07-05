@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>js demo2</title>
+
+  <script>
+
+    function sayHi()
+    {
+      let input_name=document.getElementById("name").value;
+      alert("hi "+ input_name.value);
+      input_name.value="";
+      input_name.style.background='green';
+    }
+
+  </script>
+
+</head>
+<body>
+<form>
+  Name : <input type="text" id="name">
+  <input type="button" value="click" onclick="sayHi()">
+
+</form>
+</body>
+</html>
