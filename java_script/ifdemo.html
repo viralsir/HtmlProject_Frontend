@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ifdemo</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+  <script>
+     const passing_mark=35;
+          document.addEventListener('DOMContentLoaded',()=>{
+
+            document.getElementById("save").onclick=()=>{
+
+              let output=document.getElementById("output");
+              let rollno=document.getElementById("rollno").value;
+              let name=document.getElementById("name").value;
+              let maths=parseInt(document.getElementById("maths").value)
+              let science=parseInt(document.getElementById("science").value)
+              let english=parseInt(document.getElementById("english").value)
+
+
+              if(maths<0 ||  maths>100)
+              {
+                  document.getElementById("maths_error").innerHTML="marks between 1 to 100";
+              }
+              else if(science<0 ||  science>100)
+              {
+                document.getElementById("science_error").innerHTML="marks between 1 to 100";
+              }
+              else if(english<0 || english>100)
+              {
+                document.getElementById("english_error").innerHTML="marks between 1 to 100";
+              }
+
+              else
+              {
+
+
+                document.getElementById("rollno").value="";
+                document.getElementById("name").value="";
+                document.getElementById("maths").value="";
+                document.getElementById("science").value="";
+                document.getElementById("english").value="";
+                document.getElementById("maths_error").innerHTML="";
+                document.getElementById("science_error").innerHTML="";
+                document.getElementById("english_error").innerHTML="";
+
+                if(maths>=passing_mark && science>=passing_mark && english>=passing_mark)
+                {
+                  let total=maths+science+english;
+                  let avg=total/3;
+                  let grade="";
+
+                  if(avg>90)
+                  {
+                    grade="A";
+                  }
+                  else if(avg>=70)
+                  {
+                    grade="B";
+                  }
+                  else if(avg>=55)
+                  {
+                    grade="C";
+                  }
+                  else
+                  {
+                    grade="D";
+                  }
+                  output.innerHTML += `<tr><td>${rollno}</td><td>${name}</td><td>${maths}</td><td>${science}</td><td>${english}</td>
+                                        <td style="color:green;">Pass</td><td>${total}</td><td>${avg}</td><td>${grade}</td></tr>`;
+
+
+                }
+                else
+                {
+                  output.innerHTML += `<tr><td>${rollno}</td><td>${name}</td><td>${maths}</td><td>${science}</td><td>${english}</td>
+                                        <td style="color:red;">Fail</td></tr>`;
+
+                }
+
+
+              }
+
+
+
+
+            }
+
+            // document.getElementById("maths").onfocusout=()=>{
+            //
+            //   alert("focus out even is occured.");
+            // }
+
+
+
+          })
+
+  </script>
+</head>
+<body>
+<div class="row">
+   <div class="col-3">
+
+       <table border="=2" class="table">
+         <tr>
+           <th colspan="2"> Student Entry Form</th>
+         </tr>
+         <tr>
+           <th>Roll No:</th>
+           <td><input class="form-control" type="text" size="20" id="rollno"></td>
+         </tr>
+         <tr>
+           <th>Name :</th>
+           <td><input class="form-control" type="text" size="20" id="name"></td>
+         </tr>
+         <tr>
+           <th>Maths :</th>
+           <td>
+             <input class="form-control" type="number" id="maths" onfoc> <span style="color:red;" id="maths_error"></span>
+           </td>
+         </tr>
+         <tr>
+           <th>Science :</th>
+           <th><input type="number" class="form-control" id="science"> <span style="color:red;" id="science_error"></span></th>
+         </tr>
+         <tr>
+           <th>English :</th>
+           <td><input type="number" class="form-control" id="english"><span style="color:red;" id="english_error"></span></td>
+         </tr>
+         <tr>
+           <th colspan="2" style="text-align: center;">
+             <input class="btn btn-outline-primary" type="button" value="save" id="save">
+             <input class="btn btn-outline-info" type="reset" value="clear">
+           </th>
+         </tr>
+       </table>
+
+   </div>
+    <div class="col-9">
+      <h1>
+        <table border="2" class="table table-primary" id="output">
+          <tr id="headingrow">
+            <th>Roll No</th>
+            <th>Name </th>
+            <th>Maths</th>
+            <th>Science</th>
+            <th>English</th>
+            <TH>Status</TH>
+            <th>total</th>
+            <th>Avg</th>
+            <th>Grade</th>
+          </tr>
+
+        </table>
+      </h1>
+
+    </div>
+</div>
+
+
+
+<!-- Option 1: Bootstrap Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>
