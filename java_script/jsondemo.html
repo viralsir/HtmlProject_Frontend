@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>jsondemo</title>
+</head>
+<body>
+<table id="output">
+<tr>
+
+</table>
+
+<script>
+  student_list=[{"rollno":1,"name":"vimal","maths":23,"science":333},
+    {"rollno":2,"name":"viren","maths":34,"science":3433},
+    {"rollno":3,"name":"vijay","maths":34,"science":3433},
+    {"rollno":4,"name":"viren","maths":34,"science":3433}
+  ]
+
+  student_list=[{"id":1,"name":"vimal","salary":23,"position":333},
+    {"id":2,"name":"viren","salary":34,"position":3433},
+    {"id":3,"name":"vijay","salary":34,"position":3433},
+    {"id":4,"name":"viren","salary":34,"position":3433}
+  ]
+
+  let table=document.getElementById("output")
+  let tabledata="";
+  tabledata=`<tr>`;
+  for (const key in student_list[0]) {
+    tabledata +=`<th>${key}</th>`;
+
+  }
+  tabledata +="</tr>"
+   console.log(table.innerHTML);
+  for (const student of student_list) {
+    tabledata +="<tr>";
+    for (const studentKey in student) {
+      // console.log(studentKey,":",student[studentKey])
+      tabledata+=`<td>${student[studentKey]}</td>`;
+    }
+    tabledata+="</tr>";
+
+  }
+  table.innerHTML=tabledata;
+</script>
+</body>
+</html>
