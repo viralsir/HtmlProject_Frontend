@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>create element</title>
+  <script>
+       document.addEventListener('DOMContentLoaded',()=>{
+
+         document.getElementById("listbtn").onclick=()=>{
+
+          let listdata=document.getElementById("listdata").value;
+          let ul=document.getElementById("output")
+
+          if(listdata.trim()==''|| listdata==null )
+          {
+            document.getElementById("listdata").placeholder="please add something";
+          }
+           else
+          {
+            let li=document.createElement("li");
+            li.innerHTML=listdata;
+            ul.append(li);
+          }
+
+           document.getElementById('listdata').value='';
+
+
+         }
+
+
+       })
+  </script>
+</head>
+<body>
+
+    <h1> To do List</h1>
+    <ul id="output">
+
+    </ul>
+    <form>
+      <input type="text" id="listdata">
+      <input type="button" value="Add" id="listbtn">
+    </form>
+
+</body>
+</html>
